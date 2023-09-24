@@ -1,15 +1,13 @@
 # Mandelbrot
 
-## `mandel_1.png`
+## Optimized release build, but no use of concurrency.
 
-Optimized release build, but no use of concurrence.
-
-![mandel 1](./mandel_1.png)
+![mandel](./mandel.png)
 
 ### Command used
 
 ```sh
-time mandelbrot mandel_1.png 4000x3000 -1.20,0.35 -1,0.20
+time mandelbrot mandel.png 4000x3000 -1.20,0.35 -1,0.20
 ```
 
 ### `time` data
@@ -21,16 +19,14 @@ time mandelbrot mandel_1.png 4000x3000 -1.20,0.35 -1,0.20
 | 0.02s    | system      |
 | 3.697    | total       |
 
-## `mandel_2.png`
+## Optimized release build, 8 threads.
 
-Optimized release build, 8 threads.
-
-![mandel 2](./mandel_2.png)
+Image: see above
 
 ### Command used
 
 ```sh
-time mandelbrot mandel_2.png 4000x3000 -1.20,0.35 -1,0.20
+time mandelbrot mandel.png 4000x3000 -1.20,0.35 -1,0.20
 ```
 
 ### `time` data
@@ -41,3 +37,22 @@ time mandelbrot mandel_2.png 4000x3000 -1.20,0.35 -1,0.20
 | 3.81s    | user        |
 | 0.02s    | system      |
 | 1.292    | total       |
+
+## Optimized release build, all available threads (using `num_cpus` crate).
+
+Image: see above
+
+### Command used
+
+```sh
+time mandelbrot mandel.png 4000x3000 -1.20,0.35 -1,0.20
+```
+
+### `time` data
+
+| resource | description |
+| -------- | ----------- |
+| 297%     | cpu         |
+| 3.80s    | user        |
+| 0.01s    | system      |
+| 1.286    | total       |
